@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@mail.com
+      name: Ademir
+      password: admin123  # This should be a hashed password
+    fulano:
+      email: fulano@mail.com
+      name: Fulano de Tal
+      password: fulaninho123  # This should be a hashed password
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+preauthorized:
+  emails:
+  - meumail@mail.com

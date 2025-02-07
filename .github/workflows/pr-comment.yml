@@ -1,0 +1,32 @@
+name: PR Commenter
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  add-comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Read checklist from file
+      id: read_checklist
+      run: |
+        echo "::set-output name=checklist::$(cat .github/PULL_REQUEST_TEMPLATE/checklist.md)"
+
+    - name: Add a comment to the PR
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const checklist = `${{ steps.read_checklist.outputs.checklist }}`
+          github.rest.issues.createComment({
+            issue_number: context.payload.pull_request.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: checklist
+          })

@@ -1,0 +1,33 @@
+# Arquivos de dados
+*.csv
+*.xlsx
+*.parquet
+
+# Checkpoints do Jupyter Notebook
+.ipynb_checkpoints/
+
+# Ignorar arquivos de ambiente do Poetry
+poetry.lock
+
+# Arquivos temporários
+*.log
+*.tmp
+
+# Cache e ambientes virtuais Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+env/
+venv/
+
+# Configuração do VSCode
+.vscode/
+
+# Diretórios de builds e distribuições
+dist/
+build/
+*.env
+
+# Ignorar pastas ocultas do sistema
+.DS_Store
